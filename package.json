@@ -1,7 +1,7 @@
 {
-  "name": "nest-typescript-starter",
+  "name": "nestjs-graphql-mysql",
   "version": "1.0.0",
-  "description": "Nest TypeScript starter repository",
+  "description": "NestJS | GraphQL | TypeORM (MySQL)",
   "license": "MIT",
   "scripts": {
     "start": "node index.js",

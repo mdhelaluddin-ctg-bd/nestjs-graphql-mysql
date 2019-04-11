@@ -1,7 +1,6 @@
 type Query {
   users: [User]
   user(id: ID!): User
-  getCatsByUserId(id: ID!): [Cat]
 }
 
 type Mutation {
@@ -15,9 +14,7 @@ type User {
   username: String
   password: String
   email: String
-  cats: [Cat]
 }
-
 
 input UserInput {
   username: String!

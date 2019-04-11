@@ -8,13 +8,14 @@ import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
 import { GraphQLModule, GraphQLFactory } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { CatsModule } from './cats/cats.module';
-import { SubscriptionsModule } from './subscriptions/subscriptions.module';
 import { UsersModule } from './users/users.module';
+import { SubscriptionsModule } from './subscriptions/subscriptions.module';
+
 
 @Module({
-  imports: [TypeOrmModule.forRoot(), SubscriptionsModule.forRoot(), UsersModule, CatsModule, GraphQLModule],
+  imports: [TypeOrmModule.forRoot(), SubscriptionsModule.forRoot(), UsersModule, GraphQLModule],
 })
+
 export class ApplicationModule implements NestModule {
   constructor(
     private readonly subscriptionsModule: SubscriptionsModule,
@@ -32,7 +33,7 @@ export class ApplicationModule implements NestModule {
         subscriptionsEndpoint: `ws://localhost:3001/subscriptions`,
       }),
     )
-      .forRoutes({ path: '/graphiql', method: RequestMethod.GET })
+      .forRoutes({ path: '/graphql', method: RequestMethod.GET })
       .apply(graphqlExpress(req => ({ schema, rootValue: req })))
       .forRoutes({ path: '/graphql', method: RequestMethod.ALL });
   }
