@@ -1,4 +1,4 @@
-import { Component, forwardRef, Inject } from "@nestjs/common";
+import { Component } from "@nestjs/common";
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from "./users.entity";
@@ -12,6 +12,7 @@ export class UsersService {
   ) { }
 
   create(user: User): Promise<User> {
+    user = Object.setPrototypeOf(user, {});
     return this.userRepository.save(user);
   }
 
@@ -20,17 +21,17 @@ export class UsersService {
   }
 
   findOneById(uid: number): Promise<User> {
-    return this.userRepository.findOneById(uid);
+    return this.userRepository.findOne(uid);
   }
 
   updateOneById(uid: number, user: User) {
     user = Object.setPrototypeOf(user, {});
-    return this.userRepository.updateById(uid, user);
+    return this.userRepository.update(uid, user);
     // const qb = this.userRepository.createQueryBuilder('user');
     // return qb.update(UserEntity).setParameters(user).where("user.id = :id", { id: uid }).execute();
   }
 
   delOneById(uid: number) {
-    return this.userRepository.deleteById(uid);
+    return this.userRepository.delete(uid);
   }
 }

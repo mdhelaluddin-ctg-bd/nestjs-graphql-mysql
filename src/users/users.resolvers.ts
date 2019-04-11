@@ -1,4 +1,3 @@
-import { Inject, forwardRef } from '@nestjs/common';
 import { Query, Mutation, Resolver, ResolveProperty } from "@nestjs/graphql";
 import { UsersService } from "./users.service";
 import { User } from "./users.entity";
