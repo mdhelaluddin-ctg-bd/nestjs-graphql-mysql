@@ -1,7 +1,7 @@
 # NestJS | GraphQL | TypeORM (MySQL)
 
 ## Create user using mutations
-`
+```
 mutation {
   createUser(
     user: {
@@ -16,10 +16,10 @@ mutation {
     email
   } 
 }
-`
+```
 
 ## Update user by Id using mutations
-`
+```
 mutation {
   updateUser(
     id: 1,
@@ -30,19 +30,19 @@ mutation {
     }
   )
 }
-`
+```
 
 ## Delete user by Id using mutations
-`
+```
 mutation {
   delUser(
     id: 1
   )
 }
-`
+```
 
 ## Query to get all user infortion
-`
+```
 {
   users {
     id,
@@ -51,10 +51,10 @@ mutation {
     email
   } 
 }
-`
+```
 
 ## Query to get a specific user infortion by id
-`
+```
 {
   user(id:1) {
     id,
@@ -63,4 +63,4 @@ mutation {
     email
   } 
 }
-`
+```
